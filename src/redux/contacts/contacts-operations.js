@@ -30,10 +30,10 @@ export const addContacts = createAsyncThunk(
 
 export const deleteContacts = createAsyncThunk(
   'contacts/deleteContacts',
-  async contactId => {
+  async id=> {
     try {
-      await axios.delete(`/contacts/${contactId}`);
-      return contactId;
+      await axios.delete(`/contacts/${id}`);
+      return id;
     } catch {
       toast.error("Cann't delete contact");
     }

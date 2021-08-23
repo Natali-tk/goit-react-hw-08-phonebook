@@ -15,7 +15,7 @@ const contactsSlice = createSlice({
     changeFilter: (_, { payload }) => payload,
   },
   extraReducers: {
-    [fetchContacts.fulfilled]: (state, { payload }) => state.items = payload,
+    [fetchContacts.fulfilled]: (state, { payload }) => (state.items = payload),
     [addContacts.fulfilled]: (state, { payload }) =>
       state.items = [payload,...state.items],
     [deleteContacts.fulfilled]: (state, { payload }) =>
@@ -27,3 +27,5 @@ export const { changeFilter } = contactsSlice.actions;
 
 const contactReducer = contactsSlice.reducer;
 export default contactReducer;
+
+
