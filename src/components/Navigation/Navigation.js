@@ -7,6 +7,13 @@ export default function Navigation() {
   return (
     <nav>
       <NavLink
+        to="/"
+        className={s.link}
+        activeClassName={s.activeLink}
+      >
+        Home
+      </NavLink>
+      <NavLink
         to="/contacts"
         exact
         className={s.link}
