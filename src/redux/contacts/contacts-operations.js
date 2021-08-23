@@ -30,10 +30,10 @@ export const addContacts = createAsyncThunk(
 
 export const deleteContacts = createAsyncThunk(
   'contacts/deleteContacts',
-  async id=> {
+  async contactId=> {
     try {
-      await axios.delete(`/contacts/${id}`);
-      return id;
+      await axios.delete(`/contacts/${contactId}`);
+      return contactId;
     } catch {
       toast.error("Cann't delete contact");
     }
@@ -41,12 +41,11 @@ export const deleteContacts = createAsyncThunk(
 );
 
 
-// export const toggleUpdate = createAsyncThunk(
-//   'contacts/toggleUpdate',
-//   async ({ id, completed }) => {
+// export const updateContacts = createAsyncThunk(
+//   'contacts/updateContacts',
+//   async ({ contactId, ...contacts }) => {
 //     try{
-//       const update = { completed };
-//       const {data}=  await axios.patch(`/contacts/${id}`, update);
+//       const {data}=  await axios.patch(`/contacts/${contactId}`, {...contact});
 //       return data
 //     }catch{
 //       toast.error("Cann't update contacts");
@@ -54,4 +53,3 @@ export const deleteContacts = createAsyncThunk(
 //   },
 // )
 
-  
