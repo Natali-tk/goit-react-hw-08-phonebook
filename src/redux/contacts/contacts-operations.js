@@ -39,3 +39,19 @@ export const deleteContacts = createAsyncThunk(
     }
   },
 );
+
+
+// export const toggleUpdate = createAsyncThunk(
+//   'contacts/toggleUpdate',
+//   async ({ id, completed }) => {
+//     try{
+//       const update = { completed };
+//       const {data}=  await axios.patch(`/contacts/${id}`, update);
+//       return data
+//     }catch{
+//       toast.error("Cann't update contacts");
+//     }
+//   },
+// )
+
+  

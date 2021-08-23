@@ -4,7 +4,9 @@ const initialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
+  isFetchingCurrentUser: false,
 };
+
 
 const authSlice = createSlice({
   name: "auth",
@@ -20,18 +22,27 @@ const authSlice = createSlice({
       state.token = action.payload.token;
       state.isLoggedIn = true;
     },
-    [logOut.fulfilled](state, action) {
-        state.user = { name: null, email: null };
-        state.token = null;
-        state.isLoggedIn = false;
+    [logOut.fulfilled](state, _) {
+      state.user = { name: null, email: null };
+      state.token = null;
+      state.isLoggedIn = false;
       },
+    [fetchCurrentUser.pending](state) {
+        state.isFetchingCurrentUser = true;
+      },
+
      [fetchCurrentUser.fulfilled](state, action) {
-      console.log(action);
       state.user = action.payload;
       state.isLoggedIn = true;
+      state.isFetchingCurrentUser = false;
     }, 
+    [fetchCurrentUser.rejected](state) {
+      state.isFetchingCurrentUser = false;
+    },
   },
 });
 
 const authReducer = authSlice.reducer;
 export default authReducer;
+
+

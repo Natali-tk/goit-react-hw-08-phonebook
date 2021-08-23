@@ -17,7 +17,7 @@ const contactsSlice = createSlice({
   extraReducers: {
     [fetchContacts.fulfilled]: (state, { payload }) => (state.items = payload),
     [addContacts.fulfilled]: (state, { payload }) =>
-      state.items = [payload,...state.items],
+      state.items = [payload, state.items],
     [deleteContacts.fulfilled]: (state, { payload }) =>
       state.items.filter(contact => contact.id !== payload),
   },
