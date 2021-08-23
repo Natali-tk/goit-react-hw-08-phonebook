@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { MdContactPhone } from 'react-icons/md';
-import { getFilterContacts } from 'redux/contacts/contacts-selectors';
+import { getFilteredContacts } from 'redux/contacts/contacts-selectors';
 import {
   fetchContacts,
   deleteContacts,
@@ -10,10 +10,12 @@ import {
 import s from './ContactList.module.css';
 
 export default function ContactList() {
-  const contacts = useSelector(getFilterContacts);
+
+  const contacts = useSelector(getFilteredContacts);
   const dispatch = useDispatch();
   const onDeleteClick = id => dispatch(deleteContacts(id));
   useEffect(() => dispatch(fetchContacts()), [dispatch]);
+
   return (
     <ul className={s.contactList}>
       {contacts.map(({ id, name, number }) => {

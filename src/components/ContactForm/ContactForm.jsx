@@ -2,22 +2,23 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
-import {addContacts} from 'redux/contacts/contacts-operations';
-import {getContacts} from 'redux/contacts/contacts-selectors';
+import { addContacts } from 'redux/contacts/contacts-operations';
+import { getContacts } from 'redux/contacts/contacts-selectors';
 
 import s from './ContactForm.module.css';
 
 export default function ContactForm() {
   const [name, setName] = useState('');
   const [number, setNumber] = useState('');
+
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
-  const contact = {id: uuidv4(),name,number};
-  const saveContacts=contact=>dispatch(addContacts(contact));
+  const contact = { id: uuidv4(), name, number };
+  const saveContacts = contact => dispatch(addContacts(contact));
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+
     const findContact = contacts.find(
       contact => contact.name.toLowerCase() === name.toLowerCase(),
     );
@@ -30,11 +31,10 @@ export default function ContactForm() {
       setName('');
       setNumber('');
     }
-    
   };
 
   return (
-    <form  className={s.form} onSubmit={handleSubmit}>
+    <form className={s.form} onSubmit={handleSubmit}>
       <label className={s.lable}>
         Name
         <input
