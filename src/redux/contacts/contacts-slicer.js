@@ -21,6 +21,7 @@ const filterSlice = createSlice({
     changeFilter: (_, { payload }) => payload,
   },
 });
+export const { changeFilter} = filterSlice.actions;
 
 const contactReducer  = combineReducers({
   contacts: contactsSlice.reducer,

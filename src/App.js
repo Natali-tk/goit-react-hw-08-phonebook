@@ -1,5 +1,6 @@
 
 import { Switch, Route } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import Container from "components/Container/Container";
 import AppBar from "components/AppBar/AppBar";

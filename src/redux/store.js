@@ -1,4 +1,4 @@
-import contactReducer  from './contacts/contacts-redusers';
+import contactReducer  from './contacts/contacts-slicer';
 import authReducer from './auth/auth-slicer';
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import logger from 'redux-logger';
