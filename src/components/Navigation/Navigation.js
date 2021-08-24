@@ -9,18 +9,21 @@ export default function Navigation() {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
     <nav>
-      <NavLink to="/" className={s.link} activeClassName={s.activeLink}>
+      <NavLink to="/" exact className={s.link} activeClassName={s.activeLink}>
         Home
       </NavLink>
+
       {isLoggedIn && (
-        <NavLink
-          to="/contacts"
-          exact
-          className={s.link}
-          activeClassName={s.activeLink}
-        >
-          Contacts
-        </NavLink>
+        <>
+          <NavLink
+            to="/contacts"
+            exact
+            className={s.link}
+            activeClassName={s.activeLink}
+          >
+            Contacts
+          </NavLink>
+        </>
       )}
     </nav>
   );

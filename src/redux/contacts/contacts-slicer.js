@@ -12,14 +12,21 @@ const contactsSlice = createSlice({
     filter: '',
   },
   reducers: {
-    changeFilter: (_, { payload }) => payload,
+    changeFilter: (state, { payload }) => ({ ...state, filter: payload }),
   },
   extraReducers: {
-    [fetchContacts.fulfilled]: (state, { payload }) =>
-      (state.contacts = payload),
-    [addContacts.fulfilled]: (state, { payload }) => [payload, ...state],
-    [deleteContacts.fulfilled]: (state, { payload }) =>
-      state.filter(contact => contact.id !== payload),
+    [fetchContacts.fulfilled]: (state, { payload }) => ({
+      ...state,
+      items: payload,
+    }),
+    [addContacts.fulfilled]: (state, { payload }) => ({
+      ...state,
+      items: [...state.items, payload],
+    }),
+    [deleteContacts.fulfilled]: (state, { payload }) => ({
+      ...state,
+      items: state.items.filter(contact => contact.id !== payload),
+    }),
   },
 });
 
