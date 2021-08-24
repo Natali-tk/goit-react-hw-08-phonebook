@@ -17,7 +17,7 @@ export default function LoginView() {
 
   return (
     <div>
-      <h1>Log In</h1>
+      <h2>Log In </h2>
       <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
         <label className={s.label}>
           Email

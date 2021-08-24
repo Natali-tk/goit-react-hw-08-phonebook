@@ -10,7 +10,7 @@ export const fetchContacts = createAsyncThunk(
     try {
       const { data } = await axios.get('/contacts');
       return data;
-    } catch {
+    } catch(error) {
       toast.error('There are no contacts');
     }
   },
@@ -22,7 +22,7 @@ export const addContacts = createAsyncThunk(
     try {
       const { data } = await axios.post('/contacts', contact);
       return data;
-    } catch {
+    } catch (error) {
       toast.error("Cann't add contact");
     }
   },
@@ -34,7 +34,7 @@ export const deleteContacts = createAsyncThunk(
     try {
       await axios.delete(`/contacts/${contactId}`);
       return contactId;
-    } catch {
+    } catch (error) {
       toast.error("Cann't delete contact");
     }
   },

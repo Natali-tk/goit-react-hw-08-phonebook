@@ -12,12 +12,15 @@ export default function LoginView() {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(register({ name, email, password }));
+    setName('');
+    setEmail('')
+    setPassword('');
     
   };
 
   return (
     <div>
-      <h1>Registration</h1>
+      <h2>Registration</h2>
       <form onSubmit={handleSubmit} className={s.form} autoComplete="off">
       <label className={s.label}>
           Name
@@ -46,7 +49,7 @@ export default function LoginView() {
             onChange={e => setPassword(e.target.value)}
           />
         </label>
-        <button type="submit">Registartion</button>
+        <button   type="submit">Registartion</button>
       </form>
     </div>
   );
