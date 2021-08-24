@@ -13,7 +13,7 @@ export default function UserMenu() {
     <div className={s.userMenu}>
       <img src={avatar} alt="avatar" width="34" className={s.avatar} />
       <span className={s.userName}>Wellcome, {name}</span>
-      <button type="button" onClick={() => dispatch(logOut())}>
+      <button type="button"className={s.btnLogout} onClick={() => dispatch(logOut())}>
         Log Out
       </button>
     </div>

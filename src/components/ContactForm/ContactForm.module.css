@@ -25,9 +25,8 @@
   font-size: 16px;
   width: 150px;
   padding: 4px;
-  border: 2px solid darkgrey;
+  border: 2px solid rgb(212, 130, 223);
   border-radius: 4px;
   background-color: darkgrey;
   margin-top: 20px;
-  cursor: pointer;
 }

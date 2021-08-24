@@ -2,5 +2,5 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid blueviolet;
+  border-bottom: 4px solid rgb(212, 130, 223);
 }

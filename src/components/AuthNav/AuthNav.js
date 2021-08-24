@@ -4,14 +4,14 @@ import s from './AuthNav.module.css';
 
 export default function AuthNav() {
   return (
-    <div>
+    <div className={s.authNavigatin}>
       <NavLink
         to="/register"
         exact
         className={s.link}
         activeClassName={s.activeLink}
       >
-        Регистрация
+        Registration
       </NavLink>
       <NavLink
         to="/login"
@@ -19,7 +19,7 @@ export default function AuthNav() {
         className={s.link}
         activeClassName={s.activeLink}
       >
-        Логин
+        Log In
       </NavLink>
     </div>
   );
