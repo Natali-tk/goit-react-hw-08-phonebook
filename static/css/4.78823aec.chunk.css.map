@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/views/View.module.css"],"names":[],"mappings":"AAAA,kBACE,WACF,CAEA,mBACE,oBAAa,CAAb,YAAa,CACb,6BAAsB,CAAtB,qBAAsB,CACtB,kBACF","file":"4.78823aec.chunk.css","sourcesContent":[".form {\r\n  width: 320px;\r\n}\r\n\r\n.label {\r\n  display: flex;\r\n  flex-direction: column;\r\n  margin-bottom: 15px;\r\n}\r\n"]}
