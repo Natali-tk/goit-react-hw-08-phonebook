@@ -33,6 +33,7 @@ const authSlice = createSlice({
 
      [fetchCurrentUser.fulfilled](state, action) {
       state.user = action.payload;
+      state.token = action.payload.token;
       state.isLoggedIn = true;
       state.isFetchingCurrentUser = false;
     }, 
@@ -42,7 +43,6 @@ const authSlice = createSlice({
   },
 });
 
-const authReducer = authSlice.reducer;
-export default authReducer;
+export default authSlice.reducer;
 
 
