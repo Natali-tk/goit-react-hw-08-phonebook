@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import { toast } from 'react-toastify';
 import { addContacts } from 'redux/contacts/contacts-operations';
 import { getContacts } from 'redux/contacts/contacts-selectors';
 
@@ -20,11 +21,12 @@ export default function ContactForm() {
     e.preventDefault();
 
     const findContact = contacts.find(
-      contact => contact.name.toLowerCase() === name.toLowerCase(),
+      contact => contact.name.toLowerCase() === name.toLowerCase() ||
+      contact.number === number,
     );
 
     if (findContact) {
-      alert(`${name} is already in contacts`);
+      toast.error(`${name}  or number ${number} is already in contacts`);
       return;
     } else {
       saveContacts(contact);

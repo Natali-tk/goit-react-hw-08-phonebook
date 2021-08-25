@@ -1,4 +1,4 @@
-import { Switch } from 'react-router-dom';
+import { Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, Suspense, lazy } from 'react';
 import 'react-toastify/dist/ReactToastify.css';
@@ -48,6 +48,7 @@ export default function App() {
               <PrivateRoute path="/contacts">
                 <ContactsView />
               </PrivateRoute>
+              <Redirect to="/" />
             </Suspense>
           </Switch>
           <ToastContainer position="bottom-left" autoClose={3000} />
